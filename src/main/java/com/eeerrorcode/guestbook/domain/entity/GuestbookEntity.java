@@ -13,7 +13,7 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+@ToString(callSuper = true)
 @Table(name = "tbl_guestbook")
 public class GuestbookEntity extends BaseEntity{
   @Id
