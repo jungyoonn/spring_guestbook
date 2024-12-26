@@ -1,17 +1,37 @@
 package com.eeerrorcode.guestbook.service;
 
-import java.util.List;
-
-import com.eeerrorcode.guestbook.domain.dto.GuestbookListDto;
+import com.eeerrorcode.guestbook.domain.dto.GuestbookDto;
 import com.eeerrorcode.guestbook.domain.dto.GuestbookModifyDto;
 import com.eeerrorcode.guestbook.domain.dto.GuestbookViewDto;
-import com.eeerrorcode.guestbook.domain.dto.GuestbookWriteDto;
+import com.eeerrorcode.guestbook.domain.dto.PageRequestDto;
+import com.eeerrorcode.guestbook.domain.dto.PageResultDto;
+import com.eeerrorcode.guestbook.domain.entity.Guestbook;
 
 public interface GuestbookService {
-  void write(GuestbookWriteDto dto);
+  Long write(GuestbookDto dto);
   void modify(GuestbookModifyDto dto);
   void remove(Long gno);
 
-  List<GuestbookListDto> list();
+  PageResultDto<GuestbookDto, Guestbook> list(PageRequestDto dto);
   GuestbookViewDto get(Long gno);
+
+  default Guestbook toEntity(GuestbookDto dto) {
+    return Guestbook.builder()
+    .gno(dto.getGno())
+    .title(dto.getTitle())
+    .content(dto.getContent())
+    .writer(dto.getWriter())
+    .build();
+  }
+
+  default GuestbookDto toDto(Guestbook guestbook) {
+    return GuestbookDto.builder()
+    .gno(guestbook.getGno())
+    .title(guestbook.getTitle())
+    .content(guestbook.getContent())
+    .writer(guestbook.getWriter())
+    .modDate(guestbook.getModDate())
+    .regDate(guestbook.getRegDate())
+    .build();
+  }
 }
