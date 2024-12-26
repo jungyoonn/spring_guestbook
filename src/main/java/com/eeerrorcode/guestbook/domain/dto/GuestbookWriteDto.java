@@ -1,6 +1,6 @@
 package com.eeerrorcode.guestbook.domain.dto;
 
-import com.eeerrorcode.guestbook.domain.entity.GuestbookEntity;
+import com.eeerrorcode.guestbook.domain.entity.Guestbook;
 
 import lombok.*;
 
@@ -12,14 +12,14 @@ public class GuestbookWriteDto {
   private String content;
   private String writer;
 
-  public GuestbookWriteDto(GuestbookEntity entity) {
+  public GuestbookWriteDto(Guestbook entity) {
     this.title = entity.getTitle();
     this.content = entity.getContent();
     this.writer = entity.getWriter();
   }
 
-  public GuestbookEntity toEntity() {
-    return GuestbookEntity.builder()
+  public Guestbook toEntity() {
+    return Guestbook.builder()
     .title(title)
     .content(content)
     .writer(writer)

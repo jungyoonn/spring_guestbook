@@ -1,6 +1,6 @@
 package com.eeerrorcode.guestbook.domain.dto;
 
-import com.eeerrorcode.guestbook.domain.entity.GuestbookEntity;
+import com.eeerrorcode.guestbook.domain.entity.Guestbook;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,15 +21,15 @@ public class GuestbookModifyDto {
   private String content;
   private String writer;
 
-  public GuestbookModifyDto(GuestbookEntity entity) {
+  public GuestbookModifyDto(Guestbook entity) {
     this.gno = entity.getGno();
     this.title = entity.getTitle();
     this.content = entity.getContent();
     this.writer = entity.getWriter();
   }
 
-  public GuestbookEntity toEntity() {
-    return GuestbookEntity.builder()
+  public Guestbook toEntity() {
+    return Guestbook.builder()
     .gno(gno)
     .title(title)
     .content(content)
