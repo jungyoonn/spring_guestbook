@@ -15,7 +15,7 @@ import lombok.*;
 @NoArgsConstructor
 @ToString(callSuper = true)
 @Table(name = "tbl_guestbook")
-public class GuestbookEntity extends BaseEntity{
+public class Guestbook extends BaseEntity{
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long gno;
