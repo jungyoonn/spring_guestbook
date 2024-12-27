@@ -13,6 +13,7 @@ import com.eeerrorcode.guestbook.service.GuestbookService;
 import lombok.extern.log4j.Log4j2;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
@@ -39,6 +40,11 @@ public class GuestbookController {
   public String register(GuestbookDto dto, RedirectAttributes rttr) {
     rttr.addFlashAttribute("msg", service.write(dto));
     return "redirect:list";
+  }
+  
+  @GetMapping("read")
+  public void read(Long gno, Model model, @ModelAttribute("pageDto") PageRequestDto pageDto) {
+    model.addAttribute("dto", service.read(gno));
   }
   
 }
