@@ -9,7 +9,6 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.eeerrorcode.guestbook.domain.dto.GuestbookDto;
-import com.eeerrorcode.guestbook.domain.dto.GuestbookModifyDto;
 import com.eeerrorcode.guestbook.domain.dto.PageRequestDto;
 import com.eeerrorcode.guestbook.domain.dto.PageResultDto;
 import com.eeerrorcode.guestbook.domain.entity.Guestbook;
@@ -41,8 +40,8 @@ public class GuestbookServiceImpl implements GuestbookService{
   }
 
   @Override
-  public void modify(GuestbookModifyDto dto) {
-    repository.save(dto.toEntity());    
+  public void modify(GuestbookDto dto) {
+    repository.save(toEntity(dto));    
   }
 
   @Override

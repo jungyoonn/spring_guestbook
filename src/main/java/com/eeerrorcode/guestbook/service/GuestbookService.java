@@ -1,14 +1,13 @@
 package com.eeerrorcode.guestbook.service;
 
 import com.eeerrorcode.guestbook.domain.dto.GuestbookDto;
-import com.eeerrorcode.guestbook.domain.dto.GuestbookModifyDto;
 import com.eeerrorcode.guestbook.domain.dto.PageRequestDto;
 import com.eeerrorcode.guestbook.domain.dto.PageResultDto;
 import com.eeerrorcode.guestbook.domain.entity.Guestbook;
 
 public interface GuestbookService {
   Long write(GuestbookDto dto);
-  void modify(GuestbookModifyDto dto);
+  void modify(GuestbookDto dto);
   void remove(Long gno);
 
   PageResultDto<GuestbookDto, Guestbook> list(PageRequestDto dto);
