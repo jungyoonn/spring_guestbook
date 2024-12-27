@@ -2,8 +2,7 @@
 <html xmlns="http://www.thymeleaf.org">
   <th:block th:replace="~{/layout/basic :: setContent(~{this::content})}">
     <th:block th:fragment="content">
-      <h1>Guest Book List</h1>
-      <h1>[[${result}]]</h1>
+      <h1>Guest Book List <span><a th:href="@{/guestbook/register}"><button class="btn btn-dark">REGISTER</button></a></span></h1>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -24,13 +23,13 @@
       </table>
       <!-- Center-aligned -->
       <ul class="pagination justify-content-center my-3" >
-        <li class="page-item" th:if="${result.prev}"><a class="page-link" href="#">Prev</a></li>
+        <li class="page-item" th:if="${result.prev}"><a class="page-link" th:href="@{/guestbook/list(page=${result.start - 1})}">Prev</a></li>
 
-        <li th:class="'page-item' + ${result.page == p ? 'active' : ''}" th:each="p : ${result.pageList}"><a class="page-link" href="#">[[${p}]]</a></li>
-        <!-- <li class="page-item active"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li> -->
+        <li th:class="'page-item ' + ${result.page == p ? 'active' : ''}" th:each="p : ${result.pageList}">
+          <a class="page-link" th:href="@{/guestbook/list(page=${p})}">[[${p}]]</a>
+        </li>
 
-        <li class="page-item" th:if="${result.next}"><a class="page-link" href="#">Next</a></li>
+        <li class="page-item" th:if="${result.next}"><a class="page-link" th:href="@{/guestbook/list(page=${result.end + 1})}">Next</a></li>
       </ul>
     </th:block>
   </th:block>
