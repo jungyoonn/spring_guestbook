@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import com.eeerrorcode.guestbook.domain.dto.GuestbookDto;
 import com.eeerrorcode.guestbook.domain.dto.GuestbookModifyDto;
-import com.eeerrorcode.guestbook.domain.dto.GuestbookViewDto;
 import com.eeerrorcode.guestbook.domain.dto.PageRequestDto;
 import com.eeerrorcode.guestbook.domain.dto.PageResultDto;
 import com.eeerrorcode.guestbook.domain.entity.Guestbook;
@@ -47,12 +46,13 @@ public class GuestbookServiceImpl implements GuestbookService{
   }
 
   @Override
-  public GuestbookViewDto get(Long gno) {
+  public GuestbookDto read(Long gno) {
+    // if(!opt.isPresent()) {
+      //   return null;
+      // }
+      // return toDto(opt.get());
     Optional<Guestbook> opt = repository.findById(gno);
-    if(!opt.isPresent()) {
-      return null;
-    }
-    return new GuestbookViewDto(opt.get());    
+    return opt.isPresent() ? toDto(opt.get()) : null;
   }
 
   @Override
