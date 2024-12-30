@@ -45,6 +45,7 @@ public class ReplyRepositoryTests {
 
   @Test
   public void testSelectOne() {
-    log.info(repository.findById(100L));
+    Reply reply = repository.findById(10L).orElse(null);
+    log.info(reply.getBoard().getMember().getName());
   }
 }
