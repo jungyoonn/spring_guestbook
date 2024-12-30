@@ -7,6 +7,11 @@ import java.util.stream.IntStream;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.test.annotation.Rollback;
 
 import com.eeerrorcode.guestbook.domain.entity.Board;
@@ -69,5 +74,18 @@ public class BoardRepositoryTests {
   public void testGetBoardWithReply() {
     List<Object[]> result = repository.getBoardWithReply(185L);
     result.forEach(arr -> log.info(Arrays.toString(arr)));
+  }
+
+  @Test
+  public void testGetBoardWithReplyCount() {
+    Pageable pageable = PageRequest.of(1, 10, Sort.by(Direction.DESC, "bno"));
+    Page<Object[]> result = repository.getBoardWithReplyCount(pageable);
+    result.forEach(arr -> log.info(Arrays.toString(arr)));
+  }
+
+  @Test
+  public void testGetBoardByBno() {
+    Object[] arr = repository.getBoardByBno(187L);
+    log.info(Arrays.toString(arr));
   }
 }
