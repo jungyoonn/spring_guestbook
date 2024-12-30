@@ -17,6 +17,7 @@ import com.eeerrorcode.guestbook.domain.entity.QGuestbook;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.dsl.BooleanExpression;
 
+import jakarta.transaction.Transactional;
 import lombok.extern.log4j.Log4j2;
 
 
@@ -32,6 +33,7 @@ public class GuestbookRepositoryTests {
   }
 
   @Test
+  @Transactional
   public void testInsert() {
     repository.saveAll(
       IntStream.rangeClosed(1, 300).mapToObj(i -> {
