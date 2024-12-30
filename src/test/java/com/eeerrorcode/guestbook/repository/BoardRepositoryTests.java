@@ -1,5 +1,6 @@
 package com.eeerrorcode.guestbook.repository;
 
+import java.util.Arrays;
 import java.util.stream.IntStream;
 
 import org.junit.jupiter.api.Test;
@@ -52,6 +53,14 @@ public class BoardRepositoryTests {
 
   @Test
   public void testSelectOne() {
-    log.info(repository.findById(10L));
+    Board board = repository.findById(10L).orElse(null);
+    log.info(board.getMember());
+  }
+
+  @Test
+  public void testGetBoardWithMember() {
+    Object result = repository.getBoardWithMember(104L);
+    Object[] arr = (Object[]) result;
+    log.info(Arrays.toString(arr));
   }
 }
