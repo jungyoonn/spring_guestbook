@@ -32,7 +32,7 @@ public class ReplyRepositoryTests {
       Reply reply = Reply.builder()
       .text("text" + i)
       .replyer("replyer" + i)
-      .board(Board.builder().bno(103L + (((int)Math.random() * 99) + 1)).build())
+      .board(Board.builder().bno(103L + (int)(Math.random() * 99 + 1)).build())
       .build();
       repository.save(reply);
     });
