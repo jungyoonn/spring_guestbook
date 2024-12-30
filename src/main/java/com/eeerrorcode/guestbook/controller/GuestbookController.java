@@ -51,6 +51,8 @@ public class GuestbookController {
   public String modify(GuestbookDto dto, PageRequestDto pageDto, RedirectAttributes rttr) {
     service.modify(dto);
     rttr.addAttribute("page", pageDto.getPage());
+    rttr.addAttribute("type", pageDto.getType());
+    rttr.addAttribute("keyword", pageDto.getKeyword());
     return "redirect:list";
   }
   
@@ -58,6 +60,8 @@ public class GuestbookController {
   public String remove(Long gno, PageRequestDto pageDto, RedirectAttributes rttr) {
     service.remove(gno);
     rttr.addAttribute("page", pageDto.getPage());
+    rttr.addAttribute("type", pageDto.getType());
+    rttr.addAttribute("keyword", pageDto.getKeyword());
     return "redirect:list";
   }
   

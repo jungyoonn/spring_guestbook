@@ -38,7 +38,10 @@
 
         <button class="btn btn-outline-dark">Modify</button>
         <button class="btn btn-secondary" formaction="remove">Remove</button>
-        <a th:href="@{/guestbook/list(page=${pageDto.page})}" class="btn btn-dark">List</a>
+        <a th:href="@{/guestbook/list(page=${pageDto.page},
+        type=${pageDto.type},
+        keyword=${pageDto.keyword}
+        )}" class="btn btn-dark">List</a>
       </form>
       
     </th:block>
