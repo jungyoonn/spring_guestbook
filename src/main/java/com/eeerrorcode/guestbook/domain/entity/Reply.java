@@ -8,7 +8,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.*;
 
-@Entity
+@Entity(name = "tbl_reply")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
