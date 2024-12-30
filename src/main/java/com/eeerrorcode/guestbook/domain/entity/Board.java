@@ -25,6 +25,6 @@ public class Board extends BaseEntity{
 
   private String content;
 
-  @ManyToOne(fetch = FetchType.LAZY)
+  @ManyToOne
   private Member member;
 }
