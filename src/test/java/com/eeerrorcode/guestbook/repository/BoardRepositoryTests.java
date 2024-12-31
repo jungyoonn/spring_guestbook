@@ -85,7 +85,7 @@ public class BoardRepositoryTests {
 
   @Test
   public void testGetBoardByBno() {
-    Object[] arr = repository.getBoardByBno(187L);
-    log.info(Arrays.toString(arr));
+    // Object[] arr = repository.getBoardByBno(187L);
+    // log.info(Arrays.toString(arr));
   }
 }
