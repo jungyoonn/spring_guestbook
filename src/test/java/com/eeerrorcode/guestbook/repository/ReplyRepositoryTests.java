@@ -48,4 +48,16 @@ public class ReplyRepositoryTests {
     Reply reply = repository.findById(10L).orElse(null);
     log.info(reply.getBoard().getMember().getName());
   }
+
+  @Test
+  public void testDelete() {
+
+  }
+
+  @Test
+  @Transactional
+  @Rollback(false)
+  public void testDeleteByBno() {
+    repository.deleteByBoardBno(190L);
+  }
 }
