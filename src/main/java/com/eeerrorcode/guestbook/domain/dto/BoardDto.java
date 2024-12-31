@@ -19,5 +19,5 @@ public class BoardDto {
   private String memberName;
   private LocalDateTime regDate;
   private LocalDateTime modDate;
-  private int replyCnt;
+  private Long replyCnt;
 }
