@@ -88,4 +88,15 @@ public class BoardRepositoryTests {
     Object[] arr = (Object[])repository.getBoardByBno(200L);
     log.info(Arrays.toString(arr));
   }
+
+  @Test
+  public void testSearch1() {
+    repository.search1();
+  }
+
+  @Test
+  public void testSearchPage() {
+    Pageable pageable = PageRequest.of(0, 10, Sort.by(Direction.DESC, "bno", "title"));
+    repository.searchPage("T,C", "title", pageable);
+  }
 }

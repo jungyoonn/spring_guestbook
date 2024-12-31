@@ -34,7 +34,12 @@ public class BoardControllerTests {
   public void testList() throws Exception{
     mockMvc.perform(get("/api/v1/board/list")
     .param("page", "3")
-    .param("size", "5")).andExpect(status().isOk()).andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE));
+    .param("size", "5")
+    .param("type", "T,C")
+    .param("keyword", "8")
+    )
+    .andExpect(status().isOk())
+    .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE));
   }
 
   @Test
