@@ -9,8 +9,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.eeerrorcode.guestbook.domain.entity.Board;
+import com.eeerrorcode.guestbook.repository.search.SearchBoardRepository;
 
-public interface BoardRepositoy extends JpaRepository<Board, Long>{
+public interface BoardRepositoy extends JpaRepository<Board, Long>, SearchBoardRepository{
   @Query("select b, m from tbl_board b left join member m where b.bno = :bno")
   Object getBoardWithMember(@Param("bno") Long gno);
 
