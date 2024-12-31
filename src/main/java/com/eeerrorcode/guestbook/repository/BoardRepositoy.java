@@ -30,5 +30,5 @@ public interface BoardRepositoy extends JpaRepository<Board, Long>{
         "left join member m\r\n" + //
         "left join tbl_reply r on b = r.board\r\n" + //
         "where bno = :bno")
-  Object[] getBoardByBno(@Param("bno") Long bno);
+  Object getBoardByBno(@Param("bno") Long bno);
 }
