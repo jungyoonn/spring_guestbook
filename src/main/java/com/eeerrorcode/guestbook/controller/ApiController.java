@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ApiController {
   @GetMapping("list")
   // @CrossOrigin("http://localhost:3000")
-  public List<?> todo() {
+  public List<?> todo() throws Exception{
     List<?> list = IntStream.rangeClosed(1, 3).boxed().map(i -> {
       Map<String, Object> map = new HashMap<>();
       map.put("id", i);
@@ -27,6 +27,7 @@ public class ApiController {
       map.put("regDate", LocalDateTime.now());
       return map;
     }).toList();
+    Thread.sleep(3000);
     return list;
   }
   
